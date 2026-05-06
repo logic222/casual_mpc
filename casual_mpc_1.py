@@ -114,7 +114,7 @@ class MPC:
             e = x[:3] - target
             v = x[3:]
 
-            # ⭐ V7.1 KEY
+
             V = np.sum(e**2)
 
             # strict decay constraint
@@ -165,14 +165,14 @@ class Ours:
         pos = s[:3]
         vel = s[3:]
 
-        # ⭐ exponential stabilizer (核心)
+        # exponential stabilizer
         u = 1.5*(target-pos) - 0.8*vel
 
         u_mpc = self.mpc.act(s,target)
 
         u = u + 0.2*u_mpc
 
-        # ⭐ strong damping (关键修复振荡)
+        # strong damping (关键修复振荡)
         u = 0.8*self.prev + 0.2*u
         self.prev = u
 
