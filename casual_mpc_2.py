@@ -205,7 +205,7 @@ class MPC_Only:
         # 完全依赖 MPC
         u = self.mpc.act(s, target)
 
-        # 加一个最小滤波（否则会炸）
+        #加一个最小滤波（否则会炸）
         u = 0.7*self.prev + 0.3*u
         self.prev = u
 
