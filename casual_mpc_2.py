@@ -191,7 +191,7 @@ class PID:
 #MPC
 class MPC_Only:
     def __init__(self):
-        # ❌ 不使用 SCM
+        #  不使用 SCM
         self.scm = SCM()
         self.scm.predict = lambda s: np.zeros(3)
 
@@ -212,7 +212,7 @@ class MPC_Only:
         return u
 
     def update(self, s, s2, a, ext):
-        pass  # ❌ 不学习
+        pass  # 不学习
 
 # =========================================================
 # RUN
